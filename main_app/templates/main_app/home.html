@@ -1,4 +1,12 @@
 {% extends "main_app/base.html" %}
+{% load static %}
 {% block content %}
-    <h1>FIFA 20 Player Recommender System</h1>
+<h1><strong>FIFA 20 Player Recommender System</strong></h1>
+{% if user.is_authenticated %}
+    <br>
+    <h3>Here is a useful chart of all players' positioning.</h3>
+    <img src="{% static "main_app/A046-1.jpg" %}" alt="My image">
+{% else %}
+    <h2>Please login or register.</h2>
+{% endif %}
 {% endblock content %}

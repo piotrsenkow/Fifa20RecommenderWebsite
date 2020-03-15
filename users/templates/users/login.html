@@ -1,10 +1,10 @@
 {% extends "main_app/base.html" %}
 {% block content %}
-<div class="content-section">
+<div class="content-section sign-up">
     <form method = "POST">
         {% csrf_token %}
         <fieldset class="form-group">
-            <legend class="border-bottom mb-4">Log In</legend>
+            <legend class="border-bottom mb-4 sign-up">Log In</legend>
             {{ form.as_p }}
         </fieldset>
         <div class="form-group">
@@ -12,7 +12,7 @@
         </div>
     </form>
     <div class="border-top pt-3">
-        <small class="text-muted">Need an account?<a class="ml-2" href="{% url 'register' %}">Sign up.</a></small>
+        <small class="text-muted sign-up">Need an account?<a class="ml-2 sign-up" href="{% url 'register' %}">Sign up.</a></small>
     </div>
 </div>
 {% endblock content %}

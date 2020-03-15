@@ -1,19 +1,25 @@
 body {
-  background: #fafafa;
+    background-image: url("background.png");
+
+  /*background: #fafafa;*/
   color: #333333;
   margin-top: 5rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #444444;
+  color: #ffffff;
+  text-shadow: 2px 2px black
 }
-
+a{
+  color: #010330;
+}
 ul {
   margin: 0;
+
 }
 
 .bg-steel {
-  background-color: #5f788a;
+  background-color: #010330;
 }
 .site-header .navbar-nav .nav-link {
   color: #cbd5db;
@@ -27,8 +33,10 @@ ul {
   font-weight: 500;
 }
 
+
+
 .content-section {
-  background: #ffffff;
+  background-image: url("background.png");
   padding: 10px 20px;
   border: 1px solid #dddddd;
   border-radius: 3px;
@@ -80,4 +88,8 @@ a.article-title:hover {
 
 .account-heading {
   font-size: 2.5rem;
+}
+
+.sign-up {
+  color: white;
 }
