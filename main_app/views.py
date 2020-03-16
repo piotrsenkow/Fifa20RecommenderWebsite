@@ -68,15 +68,24 @@ def rwbview(request):
 
 def stview(request):
     qs = St.objects.all()
-    name_query = request.GET.get('playername')
+    name_query = request.GET.get('playernamefield')
+    nationality = request.GET.get('nationalityfield')
+    team = request.GET.get('teamfield')
+
     countries = St.objects.order_by('nationality').values('nationality').distinct()
     team_names = St.objects.order_by('club').values('club').distinct()
+
     if name_query != '' and name_query is not None:
         qs = qs.filter(long_name__icontains=name_query)
+    if nationality != 'Choose...' and nationality != None:
+        qs = qs.filter(nationality__icontains=nationality)
+    if team != 'Choose...' and team != None:
+        qs = qs.filter(club__icontains=team)
 
     context = {
         'queryset': qs,
         'nationalities': countries,
         'teams': team_names
     }
+
     return render(request, 'main_app/st.html', context)

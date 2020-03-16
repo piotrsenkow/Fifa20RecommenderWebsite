@@ -10,7 +10,7 @@
         <div class="form-row">
             <div class="form-group col-12">
                 <div class="input-group">
-                    <input class="form-control py-2 border-right-0 border" type="search" name="playername" placeholder="Full Name..." />
+                    <input class="form-control py-2 border-right-0 border" type="search" name="playernamefield" placeholder="Full Name..." />
                     <span class="input-group-append">
                         <div class="input-group-text bg-transparent">
                             <i class="fa fa-search"></i>
@@ -23,7 +23,7 @@
         <div class="form-row">
          <div class="form-group col-md-4 sign-up">
             <label for="category">Nationality</label>
-            <select id="category" class="form-control" name="nationality">
+            <select id="category" class="form-control" name="nationalityfield">
               <option selected>Choose...</option>
               {% for country in nationalities %}
               <option value="{{ country.nationality }}">{{ country.nationality }}</option>
@@ -32,7 +32,7 @@
           </div>
           <div class="form-group col-md-4 sign-up">
             <label for="category">Team</label>
-            <select id="team" class="form-control" name="team">
+            <select id="team" class="form-control" name="teamfield">
               <option selected>Choose...</option>
               {% for team in teams %}
               <option value="{{ team.club }}">{{ team.club }}</option>
@@ -48,7 +48,7 @@
         <ul>
           {% for player in queryset %}
             <li class="sign-up">
-              {{ player.short_name }}
+              {{ player.short_name }} from {{ player.nationality }} - {{ player.club }}
             </li>
             <hr />
           {% endfor %}
