@@ -4,7 +4,7 @@
 <h1><strong>FIFA 20 Player Recommender System</strong></h1>
 {% if user.is_authenticated %}
     <br>
-    <h3>Here is a useful chart of all players' positioning.</h3>
+    <h3> Welcome {{user.username}}! Here is a useful chart of all the positions.</h3>
     <img src="{% static "main_app/A046-1.jpg" %}" alt="My image">
 {% else %}
     <h2>Please login or register.</h2>

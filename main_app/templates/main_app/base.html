@@ -2,18 +2,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'main_app/main.css' %}">
-
-
 </head>
+
+
 <body>
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
@@ -60,21 +59,21 @@
             <h5><b>Please start choosing your favorite players for each position and begin rating them.</b>
             </h5><p>
               <ul class="list-group">
-              <li class="list-group-item list-group-item-light"><a href="#"> Goalkeepers (GK)</a></li>
-              <li class="list-group-item list-group-item-light"><a href="#">Strikers (ST)</a></li>
-              <li class="list-group-item list-group-item-light"><a href="#">Center Forwards (CF)</a></li>
-              <li class="list-group-item list-group-item-light"><a href="#">Right Wings (RW)</a></li>
-              <li class="list-group-item list-group-item-light"><a href="#">Left Wings (LW)</a></li>
-              <li class="list-group-item list-group-item-light"><a href="#">Center Attacking Midfielders (CAM)</a></li>
-              <li class="list-group-item list-group-item-light"><a href="#">Center Defending Midfielders (CDM)</a></li>
-              <li class="list-group-item list-group-item-light"><a href="#">Right Midfielders (RM)</a></li>
-              <li class="list-group-item list-group-item-light"><a href="#">Left Midfielders (LM)</a></li>
-              <li class="list-group-item list-group-item-light"><a href="#">Center Midfielders (CM)</a></li>
-              <li class="list-group-item list-group-item-light"><a href="#">Right Wing Fullbacks (RWB)</a></li>
-              <li class="list-group-item list-group-item-light"><a href="#">Left Wing Fullbacks (LWB)</a></li>
-              <li class="list-group-item list-group-item-light"><a href="#">Right Fullbacks (RB)</a></li>
-              <li class="list-group-item list-group-item-light"><a href="#">Left Fullbacks (LB)</a></li>
-              <li class="list-group-item list-group-item-light"><a href="#">Center Fullbacks (CB)</a></li>
+              <li class="list-group-item list-group-item-light"><a href="{% url 'fifa-gk' %}"> Goalkeepers (GK)</a></li>
+              <li class="list-group-item list-group-item-light"><a href="{% url 'fifa-st' %}">Strikers (ST)</a></li>
+              <li class="list-group-item list-group-item-light"><a href="{% url 'fifa-cf' %}">Center Forwards (CF)</a></li>
+              <li class="list-group-item list-group-item-light"><a href="{% url 'fifa-rw' %}">Right Wings (RW)</a></li>
+              <li class="list-group-item list-group-item-light"><a href="{% url 'fifa-lw' %}">Left Wings (LW)</a></li>
+              <li class="list-group-item list-group-item-light"><a href="{% url 'fifa-cam' %}">Center Attacking Midfielders (CAM)</a></li>
+              <li class="list-group-item list-group-item-light"><a href="{% url 'fifa-cdm' %}">Center Defending Midfielders (CDM)</a></li>
+              <li class="list-group-item list-group-item-light"><a href="{% url 'fifa-rm' %}">Right Midfielders (RM)</a></li>
+              <li class="list-group-item list-group-item-light"><a href="{% url 'fifa-lm' %}">Left Midfielders (LM)</a></li>
+              <li class="list-group-item list-group-item-light"><a href="{% url 'fifa-cm' %}">Center Midfielders (CM)</a></li>
+              <li class="list-group-item list-group-item-light"><a href="{% url 'fifa-rwb' %}">Right Wing Fullbacks (RWB)</a></li>
+              <li class="list-group-item list-group-item-light"><a href="{% url 'fifa-lwb' %}">Left Wing Fullbacks (LWB)</a></li>
+              <li class="list-group-item list-group-item-light"><a href="{% url 'fifa-rb' %}">Right Fullbacks (RB)</a></li>
+              <li class="list-group-item list-group-item-light"><a href="{% url 'fifa-lb' %}">Left Fullbacks (LB)</a></li>
+              <li class="list-group-item list-group-item-light"><a href="{% url 'fifa-cb' %}">Center Fullbacks (CB)</a></li>
               </ul>
           </p>
           </div>

@@ -93,3 +93,7 @@ a.article-title:hover {
 .sign-up {
   color: white;
 }
+
+ul {
+  list-style-type: none;
+}
