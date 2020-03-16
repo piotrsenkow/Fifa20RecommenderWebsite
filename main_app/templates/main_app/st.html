@@ -45,14 +45,32 @@
       <hr />
 
     <div class="row">
-        <ul>
-          {% for player in queryset %}
-            <li class="sign-up">
-              {{ player.short_name }} from {{ player.nationality }} - {{ player.club }}
-            </li>
-            <hr />
-          {% endfor %}
-        </ul>
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                  <th scope="col">Player Name</th>
+                  <th scope="col">Nationality</th>
+                  <th scope="col">Club</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for player in queryset %}
+                <tr>
+                    <td><a class="playername" href="{% url 'stprofile' player.sofifa_id %}">
+                        {{ player.short_name }}
+                    </a>
+                    </td>
+                    <td>
+                        {{ player.nationality }}
+                    </td>
+                    <td>
+                        {{ player.club }}
+                    </td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
       </div>
 
     </main>

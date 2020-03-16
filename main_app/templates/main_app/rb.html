@@ -2,4 +2,75 @@
 {% load static %}
 {% block content %}
 <h1><strong>Right Fullbacks</strong></h1>
+<main role="main" class="container">
+
+      <h3>Search</h3>
+      <form method="GET" action=".">
+        <div class="form-row">
+            <div class="form-group col-12">
+                <div class="input-group">
+                    <input class="form-control py-2 border-right-0 border" type="search" name="playernamefield" placeholder="Full Name..." />
+                    <span class="input-group-append">
+                        <div class="input-group-text bg-transparent">
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+         <div class="form-group col-md-4 sign-up">
+            <label for="category">Nationality</label>
+            <select id="category" class="form-control" name="nationalityfield">
+              <option selected>Choose...</option>
+              {% for country in nationalities %}
+              <option value="{{ country.nationality }}">{{ country.nationality }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group col-md-4 sign-up">
+            <label for="category">Team</label>
+            <select id="team" class="form-control" name="teamfield">
+              <option selected>Choose...</option>
+              {% for team in teams %}
+              <option value="{{ team.club }}">{{ team.club }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+      <hr />
+
+    <div class="row">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                  <th scope="col">Player Name</th>
+                  <th scope="col">Nationality</th>
+                  <th scope="col">Club</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for player in queryset %}
+                <tr>
+                    <td><a class="playername" href="{% url 'rbprofile' player.sofifa_id %}">
+                        {{ player.short_name }}
+                    </a>
+                    </td>
+                    <td>
+                        {{ player.nationality }}
+                    </td>
+                    <td>
+                        {{ player.club }}
+                    </td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+      </div>
+
+    </main>
 {% endblock content %}

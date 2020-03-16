@@ -1,0 +1,17 @@
+<{% extends "main_app/base.html" %}
+{% load static %}
+{% block content %}
+<h1><strong>{{profile_id.long_name}}</strong></h1>
+<img src="{{profile_id.player_image}}" alt="https://cdn.sofifa.org/players/4/notfound_0.png">
+<div class="card text-white bg-dark mb-3 " style="width: 13rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{profile_id.short_name}}</h5>
+      <p class="card-text"><strong>Age:</strong> {{profile_id.age}}</p>
+      <p class="card-text"><strong>DOB:</strong> {{profile_id.dob}}</p>
+      <p class="card-text"><strong>Nationality:</strong> {{profile_id.nationality}}</p>
+      <p class="card-text"><strong>DOB:</strong> {{profile_id.dob}}</p>
+      <p class="card-text"><strong>Club:</strong> {{profile_id.club}}</p>
+      <p class="card-text"><strong>Position:</strong> {{profile_id.player_positions}}</p>
+  </div>
+</div>
+{% endblock content %}
