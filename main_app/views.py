@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
+from django.contrib import messages
 from .models import Cam, Cb, Cdm, Cf, Cm, Gk, Lb, Lm, Lw, Lwb, Rb, Rm, Rw, Rwb, St
+from .forms import RatingsForm
 
 def home(request):
     return render(request, 'main_app/home.html')
@@ -432,8 +434,26 @@ def stview(request):
 
 def stplayerview(request, playerid):
     player_id = St.objects.get(sofifa_id=playerid)
+    if request.method == 'POST':
+        form = RatingsForm(request.POST)
+        if form.is_valid():
+            rating = form.save(commit=False)
+            current_user = request.user
+            print(request.user)
+            print(current_user.id)
+            rating.user_id = current_user.id
+            rating.sofifa_id = player_id.sofifa_id
+            rating.position = player_id.player_positions
+            rating.save()
+            messages.success(request, 'Rating submitted successfully!')
+            return(render(request, "main_app/home.html"))
+        else:
+            form = RatingsForm()
+            return(render(request, "main_app/home.html"))
+
     context = {
-        'profile_id': player_id
+        'profile_id': player_id,
+        'form': RatingsForm
     }
     return render(request, 'main_app/profile.html', context)
 
@@ -441,7 +461,8 @@ def stplayerview(request, playerid):
 def gkplayerview(request, playerid):
     player_id = Gk.objects.get(sofifa_id=playerid)
     context = {
-        'profile_id': player_id
+        'profile_id': player_id,
+        'form': RatingsForm
     }
     return render(request, 'main_app/profile.html', context)
 
@@ -449,7 +470,8 @@ def gkplayerview(request, playerid):
 def camplayerview(request, playerid):
     player_id = Cam.objects.get(sofifa_id=playerid)
     context = {
-        'profile_id': player_id
+        'profile_id': player_id,
+        'form': RatingsForm
     }
     return render(request, 'main_app/profile.html', context)
 
@@ -457,7 +479,8 @@ def camplayerview(request, playerid):
 def cbplayerview(request, playerid):
     player_id = Cb.objects.get(sofifa_id=playerid)
     context = {
-        'profile_id': player_id
+        'profile_id': player_id,
+        'form': RatingsForm
     }
     return render(request, 'main_app/profile.html', context)
 
@@ -465,7 +488,8 @@ def cbplayerview(request, playerid):
 def cdmplayerview(request, playerid):
     player_id = Cdm.objects.get(sofifa_id=playerid)
     context = {
-        'profile_id': player_id
+        'profile_id': player_id,
+        'form': RatingsForm
     }
     return render(request, 'main_app/profile.html', context)
 
@@ -473,7 +497,8 @@ def cdmplayerview(request, playerid):
 def cfplayerview(request, playerid):
     player_id = Cf.objects.get(sofifa_id=playerid)
     context = {
-        'profile_id': player_id
+        'profile_id': player_id,
+        'form': RatingsForm
     }
     return render(request, 'main_app/profile.html', context)
 
@@ -481,7 +506,8 @@ def cfplayerview(request, playerid):
 def cmplayerview(request, playerid):
     player_id = Cm.objects.get(sofifa_id=playerid)
     context = {
-        'profile_id': player_id
+        'profile_id': player_id,
+        'form': RatingsForm
     }
     return render(request, 'main_app/profile.html', context)
 
@@ -489,7 +515,8 @@ def cmplayerview(request, playerid):
 def lbplayerview(request, playerid):
     player_id = Lb.objects.get(sofifa_id=playerid)
     context = {
-        'profile_id': player_id
+        'profile_id': player_id,
+        'form': RatingsForm
     }
     return render(request, 'main_app/profile.html', context)
 
@@ -497,7 +524,8 @@ def lbplayerview(request, playerid):
 def lmplayerview(request, playerid):
     player_id = Lm.objects.get(sofifa_id=playerid)
     context = {
-        'profile_id': player_id
+        'profile_id': player_id,
+        'form': RatingsForm
     }
     return render(request, 'main_app/profile.html', context)
 
@@ -505,7 +533,8 @@ def lmplayerview(request, playerid):
 def lwplayerview(request, playerid):
     player_id = Lw.objects.get(sofifa_id=playerid)
     context = {
-        'profile_id': player_id
+        'profile_id': player_id,
+        'form': RatingsForm
     }
     return render(request, 'main_app/profile.html', context)
 
@@ -513,7 +542,8 @@ def lwplayerview(request, playerid):
 def lwbplayerview(request, playerid):
     player_id = Lwb.objects.get(sofifa_id=playerid)
     context = {
-        'profile_id': player_id
+        'profile_id': player_id,
+        'form': RatingsForm
     }
     return render(request, 'main_app/profile.html', context)
 
@@ -521,7 +551,8 @@ def lwbplayerview(request, playerid):
 def rbplayerview(request, playerid):
     player_id = Rb.objects.get(sofifa_id=playerid)
     context = {
-        'profile_id': player_id
+        'profile_id': player_id,
+        'form': RatingsForm
     }
     return render(request, 'main_app/profile.html', context)
 
@@ -529,7 +560,8 @@ def rbplayerview(request, playerid):
 def rmplayerview(request, playerid):
     player_id = Rm.objects.get(sofifa_id=playerid)
     context = {
-        'profile_id': player_id
+        'profile_id': player_id,
+        'form': RatingsForm
     }
     return render(request, 'main_app/profile.html', context)
 
@@ -537,7 +569,8 @@ def rmplayerview(request, playerid):
 def rwplayerview(request, playerid):
     player_id = Rw.objects.get(sofifa_id=playerid)
     context = {
-        'profile_id': player_id
+        'profile_id': player_id,
+        'form': RatingsForm
     }
     return render(request, 'main_app/profile.html', context)
 
@@ -545,6 +578,9 @@ def rwplayerview(request, playerid):
 def rwbplayerview(request, playerid):
     player_id = Rwb.objects.get(sofifa_id=playerid)
     context = {
-        'profile_id': player_id
+        'profile_id': player_id,
+        'form': RatingsForm
     }
     return render(request, 'main_app/profile.html', context)
+
+

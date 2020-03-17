@@ -1,6 +1,13 @@
 {% extends "main_app/base.html" %}
 {% load static %}
 {% block content %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}></li>
+    {% endfor %}
+</ul>
+{% endif %}
 <h1><strong>FIFA 20 Player Recommender System</strong></h1>
 {% if user.is_authenticated %}
     <br>
