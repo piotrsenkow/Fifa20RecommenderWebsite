@@ -288,9 +288,29 @@ class St(models.Model):
         using = 'fifawebsite'
 
 
+class UserRatings(models.Model):
+    user_id = models.IntegerField(db_column='user_id')
+    sofifa_id = models.IntegerField(db_column='sofifa_id')
+    position = models.CharField(db_column='player_position', max_length=3)
+    rating = models.IntegerField(db_column='user_rating')
+
+    class Meta:
+        managed = True
+        db_table = 'ratings'
+
+    class Database:
+        using = 'fifawebsite'
+
+
 class UserFavorites(models.Model):
     user_id = models.IntegerField(db_column='user_id')
     sofifa_id = models.IntegerField(db_column='sofifa_id')
     position = models.CharField(db_column='player_position', max_length=3)
-    rating = models.IntegerField(db_column='rating')
     favorite = models.IntegerField(db_column='favorite')
+
+    class Meta:
+        managed = True
+        db_table = 'favorites'
+
+    class Database:
+        using = 'fifawebsite'
