@@ -445,12 +445,12 @@ def stplayerview(request, playerid):
             rating.sofifa_id = player_id.sofifa_id
             rating.position = player_id.player_positions
             rating.save()
-            messages.success(request, 'Rating submitted successfully!')
-            return(render(request, "main_app/home.html"))
+            messages.success(request, 'Rating submitted successfully! You rated {} a {}!'.format(player_id.short_name,
+                                                                                                 rating.rating))
+            return (render(request, "main_app/home.html"))
         else:
             form = RatingsForm()
-            return(render(request, "main_app/home.html"))
-
+            return (render(request, "main_app/home.html"))
     context = {
         'profile_id': player_id,
         'form': RatingsForm
@@ -460,6 +460,23 @@ def stplayerview(request, playerid):
 
 def gkplayerview(request, playerid):
     player_id = Gk.objects.get(sofifa_id=playerid)
+    if request.method == 'POST':
+        form = RatingsForm(request.POST)
+        if form.is_valid():
+            rating = form.save(commit=False)
+            current_user = request.user
+            print(request.user)
+            print(current_user.id)
+            rating.user_id = current_user.id
+            rating.sofifa_id = player_id.sofifa_id
+            rating.position = player_id.player_positions
+            rating.save()
+            messages.success(request, 'Rating submitted successfully! You rated {} a {}!'.format(player_id.short_name,
+                                                                                                 rating.rating))
+            return (render(request, "main_app/home.html"))
+        else:
+            form = RatingsForm()
+            return (render(request, "main_app/home.html"))
     context = {
         'profile_id': player_id,
         'form': RatingsForm
@@ -469,6 +486,22 @@ def gkplayerview(request, playerid):
 
 def camplayerview(request, playerid):
     player_id = Cam.objects.get(sofifa_id=playerid)
+    if request.method == 'POST':
+        form = RatingsForm(request.POST)
+        if form.is_valid():
+            rating = form.save(commit=False)
+            current_user = request.user
+            print(request.user)
+            print(current_user.id)
+            rating.user_id = current_user.id
+            rating.sofifa_id = player_id.sofifa_id
+            rating.position = player_id.player_positions
+            rating.save()
+            messages.success(request, 'Rating submitted successfully! You rated {} a {}!'.format(player_id.short_name, rating.rating))
+            return(render(request, "main_app/home.html"))
+        else:
+            form = RatingsForm()
+            return(render(request, "main_app/home.html"))
     context = {
         'profile_id': player_id,
         'form': RatingsForm
@@ -478,6 +511,22 @@ def camplayerview(request, playerid):
 
 def cbplayerview(request, playerid):
     player_id = Cb.objects.get(sofifa_id=playerid)
+    if request.method == 'POST':
+        form = RatingsForm(request.POST)
+        if form.is_valid():
+            rating = form.save(commit=False)
+            current_user = request.user
+            print(request.user)
+            print(current_user.id)
+            rating.user_id = current_user.id
+            rating.sofifa_id = player_id.sofifa_id
+            rating.position = player_id.player_positions
+            rating.save()
+            messages.success(request, 'Rating submitted successfully! You rated {} a {}!'.format(player_id.short_name, rating.rating))
+            return(render(request, "main_app/home.html"))
+        else:
+            form = RatingsForm()
+            return(render(request, "main_app/home.html"))
     context = {
         'profile_id': player_id,
         'form': RatingsForm
@@ -487,6 +536,22 @@ def cbplayerview(request, playerid):
 
 def cdmplayerview(request, playerid):
     player_id = Cdm.objects.get(sofifa_id=playerid)
+    if request.method == 'POST':
+        form = RatingsForm(request.POST)
+        if form.is_valid():
+            rating = form.save(commit=False)
+            current_user = request.user
+            print(request.user)
+            print(current_user.id)
+            rating.user_id = current_user.id
+            rating.sofifa_id = player_id.sofifa_id
+            rating.position = player_id.player_positions
+            rating.save()
+            messages.success(request, 'Rating submitted successfully! You rated {} a {}!'.format(player_id.short_name, rating.rating))
+            return(render(request, "main_app/home.html"))
+        else:
+            form = RatingsForm()
+            return(render(request, "main_app/home.html"))
     context = {
         'profile_id': player_id,
         'form': RatingsForm
@@ -505,6 +570,22 @@ def cfplayerview(request, playerid):
 
 def cmplayerview(request, playerid):
     player_id = Cm.objects.get(sofifa_id=playerid)
+    if request.method == 'POST':
+        form = RatingsForm(request.POST)
+        if form.is_valid():
+            rating = form.save(commit=False)
+            current_user = request.user
+            print(request.user)
+            print(current_user.id)
+            rating.user_id = current_user.id
+            rating.sofifa_id = player_id.sofifa_id
+            rating.position = player_id.player_positions
+            rating.save()
+            messages.success(request, 'Rating submitted successfully! You rated {} a {}!'.format(player_id.short_name, rating.rating))
+            return(render(request, "main_app/home.html"))
+        else:
+            form = RatingsForm()
+            return(render(request, "main_app/home.html"))
     context = {
         'profile_id': player_id,
         'form': RatingsForm
@@ -514,6 +595,22 @@ def cmplayerview(request, playerid):
 
 def lbplayerview(request, playerid):
     player_id = Lb.objects.get(sofifa_id=playerid)
+    if request.method == 'POST':
+        form = RatingsForm(request.POST)
+        if form.is_valid():
+            rating = form.save(commit=False)
+            current_user = request.user
+            print(request.user)
+            print(current_user.id)
+            rating.user_id = current_user.id
+            rating.sofifa_id = player_id.sofifa_id
+            rating.position = player_id.player_positions
+            rating.save()
+            messages.success(request, 'Rating submitted successfully! You rated {} a {}!'.format(player_id.short_name, rating.rating))
+            return(render(request, "main_app/home.html"))
+        else:
+            form = RatingsForm()
+            return(render(request, "main_app/home.html"))
     context = {
         'profile_id': player_id,
         'form': RatingsForm
@@ -523,6 +620,22 @@ def lbplayerview(request, playerid):
 
 def lmplayerview(request, playerid):
     player_id = Lm.objects.get(sofifa_id=playerid)
+    if request.method == 'POST':
+        form = RatingsForm(request.POST)
+        if form.is_valid():
+            rating = form.save(commit=False)
+            current_user = request.user
+            print(request.user)
+            print(current_user.id)
+            rating.user_id = current_user.id
+            rating.sofifa_id = player_id.sofifa_id
+            rating.position = player_id.player_positions
+            rating.save()
+            messages.success(request, 'Rating submitted successfully! You rated {} a {}!'.format(player_id.short_name, rating.rating))
+            return(render(request, "main_app/home.html"))
+        else:
+            form = RatingsForm()
+            return(render(request, "main_app/home.html"))
     context = {
         'profile_id': player_id,
         'form': RatingsForm
@@ -532,6 +645,22 @@ def lmplayerview(request, playerid):
 
 def lwplayerview(request, playerid):
     player_id = Lw.objects.get(sofifa_id=playerid)
+    if request.method == 'POST':
+        form = RatingsForm(request.POST)
+        if form.is_valid():
+            rating = form.save(commit=False)
+            current_user = request.user
+            print(request.user)
+            print(current_user.id)
+            rating.user_id = current_user.id
+            rating.sofifa_id = player_id.sofifa_id
+            rating.position = player_id.player_positions
+            rating.save()
+            messages.success(request, 'Rating submitted successfully! You rated {} a {}!'.format(player_id.short_name, rating.rating))
+            return(render(request, "main_app/home.html"))
+        else:
+            form = RatingsForm()
+            return(render(request, "main_app/home.html"))
     context = {
         'profile_id': player_id,
         'form': RatingsForm
@@ -541,6 +670,22 @@ def lwplayerview(request, playerid):
 
 def lwbplayerview(request, playerid):
     player_id = Lwb.objects.get(sofifa_id=playerid)
+    if request.method == 'POST':
+        form = RatingsForm(request.POST)
+        if form.is_valid():
+            rating = form.save(commit=False)
+            current_user = request.user
+            print(request.user)
+            print(current_user.id)
+            rating.user_id = current_user.id
+            rating.sofifa_id = player_id.sofifa_id
+            rating.position = player_id.player_positions
+            rating.save()
+            messages.success(request, 'Rating submitted successfully! You rated {} a {}!'.format(player_id.short_name, rating.rating))
+            return(render(request, "main_app/home.html"))
+        else:
+            form = RatingsForm()
+            return(render(request, "main_app/home.html"))
     context = {
         'profile_id': player_id,
         'form': RatingsForm
@@ -550,6 +695,22 @@ def lwbplayerview(request, playerid):
 
 def rbplayerview(request, playerid):
     player_id = Rb.objects.get(sofifa_id=playerid)
+    if request.method == 'POST':
+        form = RatingsForm(request.POST)
+        if form.is_valid():
+            rating = form.save(commit=False)
+            current_user = request.user
+            print(request.user)
+            print(current_user.id)
+            rating.user_id = current_user.id
+            rating.sofifa_id = player_id.sofifa_id
+            rating.position = player_id.player_positions
+            rating.save()
+            messages.success(request, 'Rating submitted successfully! You rated {} a {}!'.format(player_id.short_name, rating.rating))
+            return(render(request, "main_app/home.html"))
+        else:
+            form = RatingsForm()
+            return(render(request, "main_app/home.html"))
     context = {
         'profile_id': player_id,
         'form': RatingsForm
@@ -559,6 +720,22 @@ def rbplayerview(request, playerid):
 
 def rmplayerview(request, playerid):
     player_id = Rm.objects.get(sofifa_id=playerid)
+    if request.method == 'POST':
+        form = RatingsForm(request.POST)
+        if form.is_valid():
+            rating = form.save(commit=False)
+            current_user = request.user
+            print(request.user)
+            print(current_user.id)
+            rating.user_id = current_user.id
+            rating.sofifa_id = player_id.sofifa_id
+            rating.position = player_id.player_positions
+            rating.save()
+            messages.success(request, 'Rating submitted successfully! You rated {} a {}!'.format(player_id.short_name, rating.rating))
+            return(render(request, "main_app/home.html"))
+        else:
+            form = RatingsForm()
+            return(render(request, "main_app/home.html"))
     context = {
         'profile_id': player_id,
         'form': RatingsForm
@@ -568,6 +745,22 @@ def rmplayerview(request, playerid):
 
 def rwplayerview(request, playerid):
     player_id = Rw.objects.get(sofifa_id=playerid)
+    if request.method == 'POST':
+        form = RatingsForm(request.POST)
+        if form.is_valid():
+            rating = form.save(commit=False)
+            current_user = request.user
+            print(request.user)
+            print(current_user.id)
+            rating.user_id = current_user.id
+            rating.sofifa_id = player_id.sofifa_id
+            rating.position = player_id.player_positions
+            rating.save()
+            messages.success(request, 'Rating submitted successfully! You rated {} a {}!'.format(player_id.short_name, rating.rating))
+            return(render(request, "main_app/home.html"))
+        else:
+            form = RatingsForm()
+            return(render(request, "main_app/home.html"))
     context = {
         'profile_id': player_id,
         'form': RatingsForm
@@ -577,6 +770,22 @@ def rwplayerview(request, playerid):
 
 def rwbplayerview(request, playerid):
     player_id = Rwb.objects.get(sofifa_id=playerid)
+    if request.method == 'POST':
+        form = RatingsForm(request.POST)
+        if form.is_valid():
+            rating = form.save(commit=False)
+            current_user = request.user
+            print(request.user)
+            print(current_user.id)
+            rating.user_id = current_user.id
+            rating.sofifa_id = player_id.sofifa_id
+            rating.position = player_id.player_positions
+            rating.save()
+            messages.success(request, 'Rating submitted successfully! You rated {} a {}!'.format(player_id.short_name, rating.rating))
+            return(render(request, "main_app/home.html"))
+        else:
+            form = RatingsForm()
+            return(render(request, "main_app/home.html"))
     context = {
         'profile_id': player_id,
         'form': RatingsForm
