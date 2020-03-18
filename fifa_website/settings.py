@@ -25,7 +25,7 @@ SECRET_KEY = 'u*yh661e9kgzb)su)em$v-q5$ywy@ae3inj)!==6*bx@lbmu^x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ec2-18-205-117-116.compute-1.amazonaws.com', '18.205.117.116']
+ALLOWED_HOSTS = ['ec2-18-205-117-116.compute-1.amazonaws.com', '18.205.117.116', '127.0.0.1']
 
 
 # Application definition
@@ -123,5 +123,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "fifa_website/static"),)
+
 
 LOGIN_REDIRECT_URL = 'fifa-home'
