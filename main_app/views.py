@@ -561,6 +561,22 @@ def cdmplayerview(request, playerid):
 
 def cfplayerview(request, playerid):
     player_id = Cf.objects.get(sofifa_id=playerid)
+    if request.method == 'POST':
+        form = RatingsForm(request.POST)
+        if form.is_valid():
+            rating = form.save(commit=False)
+            current_user = request.user
+            print(request.user)
+            print(current_user.id)
+            rating.user_id = current_user.id
+            rating.sofifa_id = player_id.sofifa_id
+            rating.position = player_id.player_positions
+            rating.save()
+            messages.success(request, 'Rating submitted successfully! You rated {} a {}!'.format(player_id.short_name, rating.rating))
+            return(render(request, "main_app/home.html"))
+        else:
+            form = RatingsForm()
+            return(render(request, "main_app/home.html"))
     context = {
         'profile_id': player_id,
         'form': RatingsForm
