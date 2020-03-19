@@ -1,0 +1,37 @@
+<{% extends "main_app/base.html" %}
+{% load static %}
+{% block content %}
+<h1> Player Recommender </h1>
+<form method="POST" action="{{profileid}}">
+    {% csrf_token %}
+      <div class="form-group  sign-up">
+              {{form.as_p}}
+          <input type="submit" value="Submit">
+      </div>
+    </form>
+<div class="row">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                  <th scope="col">Image</th>
+                  <th scope="col">Player ID</th>
+                  <th scope="col">Position</th>
+                  <th scope="col">Shortened Name</th>
+                  <th scope="col">Correlation</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for key, corr in qs.Correlation.items %}
+                <tr>
+                {% for val in key %}
+
+                    <td>{{val}}</td>
+
+                    {% endfor %}
+                <td>{{corr}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+      </div>
+{% endblock content %}

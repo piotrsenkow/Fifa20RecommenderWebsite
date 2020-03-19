@@ -2,13 +2,52 @@ from django.shortcuts import render
 from django.core.paginator import Paginator
 from django.contrib import messages
 from .models import Cam, Cb, Cdm, Cf, Cm, Gk, Lb, Lm, Lw, Lwb, Rb, Rm, Rw, Rwb, St
-from .forms import RatingsForm
+from .forms import RatingsForm, RecommendForm
+import pandas as pd
+import numpy as np
+from sqlalchemy import create_engine
+
+def recommend(request):
+    def recommend_me(userid):
+        players = pd.read_csv("playeridname.csv")
+        df = pd.read_sql_query('select * from "ratings"', con=engine)
+        df = pd.merge(df, players, on='sofifa_id')
+        ratings = pd.DataFrame(df.groupby(['sofifa_id', 'player_position', 'short_name'])['user_rating'].mean())
+        ratings['num_of_ratings'] = pd.DataFrame(
+            df.groupby(['sofifa_id', 'player_position', 'short_name'])['user_rating'].count())
+        player_matrix = df.pivot_table(index='user_id', columns='sofifa_id', values='user_rating')
+        player_user_ratings = player_matrix[userid]
+        similarity_to_player = player_matrix.corrwith(player_user_ratings)
+        corr_player = pd.DataFrame(similarity_to_player, columns=['Correlation'])
+        corr_player.dropna(inplace=True)
+        corr_player = corr_player.join(ratings['num_of_ratings'])
+        corr_player = corr_player[corr_player['num_of_ratings'] > 15].sort_values('Correlation', ascending=False)
+        return corr_player.head(15).to_dict()
+    recommendations = {}
+    if request.method == 'POST':
+        form = RecommendForm(request.POST)
+        if form.is_valid():
+            engine = create_engine('postgresql://piotr:2050@localhost:5432/fifawebsite')
+            try:
+                recommendations = recommend_me(form.cleaned_data['playerid'])
+            except:
+                messages.error(request, "Error: Not enough users rated this player for me to give you a recommendation.")
+                return (render(request, "main_app/home.html"))
+    context = {
+        'qs': recommendations,
+        'form': RecommendForm
+    }
+    return render(request, 'main_app/recommend.html', context)
+
 
 def home(request):
+
     return render(request, 'main_app/home.html')
 
 
 def about(request):
+
+
     return render(request, 'main_app/about.html')
 
 
@@ -434,6 +473,7 @@ def stview(request):
 
 def stplayerview(request, playerid):
     player_id = St.objects.get(sofifa_id=playerid)
+
     if request.method == 'POST':
         form = RatingsForm(request.POST)
         if form.is_valid():

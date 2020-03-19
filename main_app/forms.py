@@ -10,3 +10,7 @@ class RatingsForm(forms.ModelForm):
         widgets = {
             'rating': forms.Select(choices=RATING_CHOICES)
         }
+
+
+class RecommendForm(forms.Form):
+    playerid = forms.IntegerField(max_value=252905, min_value=1)
