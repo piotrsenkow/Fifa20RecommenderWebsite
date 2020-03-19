@@ -20,7 +20,7 @@ df = pd.read_sql_query('select sofifa_id, player_positions from "cam"', con=engi
 fifa_id = df['sofifa_id']
 # print(len(fifa_id))
 
-for i in range(1, 10001):
+for i in range(1, 30001):
     user = random.choice(users)
     rating = random.choice(ratings)
     player_id = int(random.choice(fifa_id))
@@ -47,7 +47,7 @@ df = pd.read_sql_query('select sofifa_id, player_positions from "cb"', con=engin
 fifa_id = df['sofifa_id']
 # print(len(fifa_id))
 
-for i in range(10001, 20001):
+for i in range(30001, 60001):
     user = random.choice(users)
     rating = random.choice(ratings)
     player_id = int(random.choice(fifa_id))
@@ -73,7 +73,7 @@ df = pd.read_sql_query('select sofifa_id, player_positions from "cdm"', con=engi
 fifa_id = df['sofifa_id']
 # print(len(fifa_id))
 
-for i in range(20001, 30001):
+for i in range(60001, 90001):
     user = random.choice(users)
     rating = random.choice(ratings)
     player_id = int(random.choice(fifa_id))
@@ -99,7 +99,7 @@ df = pd.read_sql_query('select sofifa_id, player_positions from "cf"', con=engin
 fifa_id = df['sofifa_id']
 # print(len(fifa_id))
 
-for i in range(30001, 40001):
+for i in range(90001, 120001):
     user = random.choice(users)
     rating = random.choice(ratings)
     player_id = int(random.choice(fifa_id))
@@ -125,7 +125,7 @@ df = pd.read_sql_query('select sofifa_id, player_positions from "cm"', con=engin
 fifa_id = df['sofifa_id']
 # print(len(fifa_id))
 
-for i in range(40001, 50001):
+for i in range(120001, 150001):
     user = random.choice(users)
     rating = random.choice(ratings)
     player_id = int(random.choice(fifa_id))
@@ -151,7 +151,7 @@ df = pd.read_sql_query('select sofifa_id, player_positions from "gk"', con=engin
 fifa_id = df['sofifa_id']
 # print(len(fifa_id))
 
-for i in range(50001, 60001):
+for i in range(150001, 180001):
     user = random.choice(users)
     rating = random.choice(ratings)
     player_id = int(random.choice(fifa_id))
@@ -177,7 +177,7 @@ df = pd.read_sql_query('select sofifa_id, player_positions from "lb"', con=engin
 fifa_id = df['sofifa_id']
 # print(len(fifa_id))
 
-for i in range(60001, 70001):
+for i in range(180001, 210001):
     user = random.choice(users)
     rating = random.choice(ratings)
     player_id = int(random.choice(fifa_id))
@@ -203,7 +203,7 @@ df = pd.read_sql_query('select sofifa_id, player_positions from "lm"', con=engin
 fifa_id = df['sofifa_id']
 # print(len(fifa_id))
 
-for i in range(70001, 80001):
+for i in range(210001, 240001):
     user = random.choice(users)
     rating = random.choice(ratings)
     player_id = int(random.choice(fifa_id))
@@ -229,7 +229,7 @@ df = pd.read_sql_query('select sofifa_id, player_positions from "lw"', con=engin
 fifa_id = df['sofifa_id']
 # print(len(fifa_id))
 
-for i in range(80001, 90001):
+for i in range(240001, 270001):
     user = random.choice(users)
     rating = random.choice(ratings)
     player_id = int(random.choice(fifa_id))
@@ -255,7 +255,7 @@ df = pd.read_sql_query('select sofifa_id, player_positions from "lwb"', con=engi
 fifa_id = df['sofifa_id']
 # print(len(fifa_id))
 
-for i in range(90001, 100001):
+for i in range(270001, 300001):
     user = random.choice(users)
     rating = random.choice(ratings)
     player_id = int(random.choice(fifa_id))
@@ -281,7 +281,7 @@ df = pd.read_sql_query('select sofifa_id, player_positions from "rb"', con=engin
 fifa_id = df['sofifa_id']
 # print(len(fifa_id))
 
-for i in range(100001, 110001):
+for i in range(300001, 330001):
     user = random.choice(users)
     rating = random.choice(ratings)
     player_id = int(random.choice(fifa_id))
@@ -307,7 +307,7 @@ df = pd.read_sql_query('select sofifa_id, player_positions from "rm"', con=engin
 fifa_id = df['sofifa_id']
 # print(len(fifa_id))
 
-for i in range(110001, 120001):
+for i in range(330001, 360001):
     user = random.choice(users)
     rating = random.choice(ratings)
     player_id = int(random.choice(fifa_id))
@@ -333,7 +333,7 @@ df = pd.read_sql_query('select sofifa_id, player_positions from "rw"', con=engin
 fifa_id = df['sofifa_id']
 # print(len(fifa_id))
 
-for i in range(120001, 130001):
+for i in range(360001, 390001):
     user = random.choice(users)
     rating = random.choice(ratings)
     player_id = int(random.choice(fifa_id))
@@ -359,7 +359,7 @@ df = pd.read_sql_query('select sofifa_id, player_positions from "rwb"', con=engi
 fifa_id = df['sofifa_id']
 # print(len(fifa_id))
 
-for i in range(130001, 140001):
+for i in range(390001, 420001):
     user = random.choice(users)
     rating = random.choice(ratings)
     player_id = int(random.choice(fifa_id))
@@ -385,7 +385,7 @@ df = pd.read_sql_query('select sofifa_id, player_positions from "st"', con=engin
 fifa_id = df['sofifa_id']
 # print(len(fifa_id))
 
-for i in range(140001, 150001):
+for i in range(420001, 450001):
     user = random.choice(users)
     rating = random.choice(ratings)
     player_id = int(random.choice(fifa_id))
