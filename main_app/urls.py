@@ -19,6 +19,7 @@ urlpatterns = [
     path('rw/', views.rwview, name='fifa-rw'),
     path('rwb/', views.rwbview, name='fifa-rwb'),
     path('st/', views.stview, name='fifa-st'),
+    path('recommend/', views.recommend, name='fifa-recommend'),
 
     path(r'st/<int:playerid>', views.stplayerview, name='stprofile'),
     path(r'gk/<int:playerid>', views.gkplayerview, name='gkprofile'),
